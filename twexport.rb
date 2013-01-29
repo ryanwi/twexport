@@ -1,19 +1,22 @@
 require 'twitter'
+require 'yaml'
 require 'csv'
 
 
 class Twexport
   def initialize(options = {})
-    @client = Twitter::Client.new(
-      :consumer_key => options[:consumer_key],
-      :consumer_secret => options[:consumer_secret],
-      :oauth_token => options[:oauth_token],
-      :oauth_token_secret => options[:oauth_token_secret]
-    )
+    @list_id = options[:list_id]
+    @screen_name = options[:screen_name]
+    @list_slug = options[:list_slug]
+    @client = Twitter::Client.new
+
+    # Load config for Twitter gem
+    config = YAML.load_file("config.yml")
+    config.keys.each {|key| ENV[key] = config[key]}
   end
 
   def save(path)
-    list = @client.list_members("screen_name", "list_slug")
+    list = @client.list_members(@screen_name, @list_slug)
     CSV.open(path, "wb", {:force_quotes=>true}) do |csv|
       csv << ["name", "screen_name", "location", "url", "description", "followers", "following", "listed"]
       list.users.each do |user|
@@ -24,9 +27,5 @@ class Twexport
   end
 end
 
-
-twexport = Twexport.new(:consumer_key => "",
-  :consumer_secret => "",
-  :oauth_token => "",
-  :oauth_token_secret => "")
-twexport.save('listname.csv')
+twexport = Twexport.new(:screen_name => "", :list_slug => "")
+twexport.save('list.csv')
