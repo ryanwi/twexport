@@ -19,6 +19,7 @@ class Twexport
     )
   end
 
+  # 
   def save(path)
     members = get_members
 
@@ -36,23 +37,13 @@ class Twexport
   def get_members 
     cursor = -1
     members = []
+    list_args = @list_id.nil? ? [@screen_name, @list_slug] : @list_id
 
-    #TODO: DRY
-
-    unless @list_id.nil?
-      while cursor != 0 do
-        sleep rand(5) if cursor > 0
-        members_page = @client.list_members(@list_id, {:cursor=>cursor})
-        cursor = members_page.next_cursor
-        members << members_page.users
-      end
-    else
-      while cursor != 0 do
-        sleep rand(5) if cursor > 0
-        members_page = @client.list_members(@screen_name, @list_slug, {:cursor=>cursor})
-        cursor = members_page.next_cursor
-        members << members_page.users
-      end
+    while cursor != 0 do
+      sleep rand(5) if cursor > 0
+      members_page = @client.list_members *list_args, {:cursor=>cursor}
+      cursor = members_page.next_cursor
+      members << members_page.users
     end
 
     members.flatten
@@ -65,5 +56,7 @@ twexport = Twexport.new(:screen_name => "rails", :list_slug => "core")
 twexport.save('core.csv')
 
 # By ID
-# twexport = Twexport.new(:list_id => 574)
+# twexport = Twexport.new(:list_id => 574) # big list to test cursor
 # twexport.save('team.csv')
+twexport = Twexport.new(:list_id => 2031945)
+twexport.save('apiteam.csv')
