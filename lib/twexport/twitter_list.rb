@@ -1,13 +1,18 @@
 require 'twitter'
-require 'yaml'
-require 'csv'
 
 module Twexport
 
   # Exporter that can call Twitter Lists API
-  class TwitterListExporter < Exporter
+  class TwitterList < Exporter
 
-    def save
+    def initialize(options = {})
+      @list_id = options[:list_id]
+      @screen_name = options[:screen_name]
+      @list_slug = options[:list_slug]
+    end
+
+    # Execute the Twitter List API call and save the result
+    def save(path)
       @users = get_members
       super
     end
