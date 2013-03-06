@@ -1,10 +1,6 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Twexport::WebPage do
-  it "initializes with config" do
-    twexport = Twexport::WebPage.new
-  end
-
   it "finds 1 twitter username to extract"  do
     twexport = Twexport::WebPage.new 'http://www.ryan-williams.net'
     names = twexport.send(:extract_names)
