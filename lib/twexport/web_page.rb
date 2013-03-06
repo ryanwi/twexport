@@ -14,7 +14,7 @@ module Twexport
     # Execute the export and save the result
     def save(path)
       usernames = extract_names
-      lookup_users usernames
+      @users = lookup_users usernames
       super
     end
 

@@ -26,7 +26,7 @@ module Twexport
     def lookup_users(usernames)
       #TODO: handle more than 100
       # Only retrieves up to 100 at a time
-      @users = @client.users(usernames)
+      users = @client.users(usernames)
     end
 
   end
