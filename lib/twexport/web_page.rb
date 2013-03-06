@@ -38,7 +38,7 @@ module Twexport
         end
       end
 
-      names.to_set
+      names.uniq
     end
 
   end
