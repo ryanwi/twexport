@@ -8,10 +8,17 @@ module Twexport
 
     def initialize
       # configure twitter client
-      
+      config = YAML.load_file(File.expand_path(File.dirname(__FILE__) + '/../../config/config.yml'))
+
+      @client = Twitter::Client.new(
+        :consumer_key => config["consumer_key"],
+        :consumer_secret => config["consumer_secret"],
+        :oauth_token => config["oauth_token"],
+        :oauth_token_secret => config["oauth_token_secret"]
+      )
     end
 
-  def save(path)
+    def save(path)
       CSV.open(path, "wb", {:force_quotes=>true}) do |csv|
         csv << ["name", "screen_name", "location", "url", "description", "followers", "following", "listed"]
         @users.each do |user|
