@@ -15,7 +15,14 @@ A Ruby library for exporting Twitter user profile information. Currently support
 * Copy the Consumer key, Consumer secret, Access token, Access Token secret and put them in the config/app.yml.example
 * Rename config/app.yml.example to config/app.yml
 
+
 ## Usage
+
+With a command line
+
+    $ cd twexport
+    $ irb
+    1.9.3p392 :001 > require './lib/twexport'
 
 
 To export a Twitter List, use a combination of username and list name
