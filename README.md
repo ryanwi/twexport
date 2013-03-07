@@ -10,6 +10,10 @@ A Ruby library for exporting Twitter user profile information. Currently support
 
 ## Configuration
 
+* Create an app at dev.twitter.com
+* On the app details page (https://dev.twitter.com/apps/yourappid/show), click the "Create my access token" button
+* Copy the Consumer key, Consumer secret, Access token, Access Token secret and put them in the config/app.yml.example
+* Rename config/app.yml.example to config/app.yml
 
 ## Usage
 
@@ -20,9 +24,9 @@ twexport = Twexport::TwitterList.new(:screen_name => "twitter", :list_slug => "t
 twexport.save('team.csv')
 ```
 
-or user a list id
+or use a list id
 ```ruby
-twexport = Twexport::TwitterList.new(2031945)
+twexport = Twexport::TwitterList.new(:list_id => 2031945)
 twexport.save('team.csv')
 ```
 
