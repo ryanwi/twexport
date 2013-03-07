@@ -1,2 +1,1 @@
-
-require File.expand_path(File.dirname(__FILE__) + '/../lib/twexport')
+require_relative '../lib/twexport'

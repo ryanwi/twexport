@@ -1,4 +1,4 @@
-require File.dirname(__FILE__) + '/../spec_helper'
+require_relative '../spec_helper'
 
 describe Twexport::Exporter do 
   it "initializes with config" do
