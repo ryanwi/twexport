@@ -1,12 +1,18 @@
 # twexport
 
-A Ruby library for exporting Twitter user profile information. Currently supports Twitter Lists and web pages with links to twitter users.  The information is saved to CSV file.
+## Description
 
+A Ruby library for bulk exporting Twitter user profile information. Currently supports Twitter Lists and web pages with links to twitter users.  The information is saved to CSV file.
+
+## Requirements
+
+  * Ruby (developed and tested on 1.9.3 and up)
 
 ## Installation
 
-* Download or clone this repository
+Install via RubyGems:
 
+    gem install twexport
 
 ## Configuration
 
@@ -15,14 +21,12 @@ A Ruby library for exporting Twitter user profile information. Currently support
 * Copy the Consumer key, Consumer secret, Access token, Access Token secret and put them in the config/app.yml.example
 * Rename config/app.yml.example to config/app.yml
 
-
 ## Usage
 
 With a command line
 
-    $ cd twexport
     $ irb
-    1.9.3p392 :001 > require './lib/twexport'
+     > require 'twexport'
 
 
 To export a Twitter List, use a combination of username and list name
@@ -42,7 +46,6 @@ To export information for users listed in a web page
 twexport = Twexport::WebPage.new("http://techcrunch.com/about/")
 twexport.save('tcwriters.csv')
 ```
-
 
 ## Other libraries of interest
 [t - A command-line power tool for Twitter](http://sferik.github.com/t/)
