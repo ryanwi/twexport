@@ -18,8 +18,6 @@ Install via RubyGems:
 
 * Create an app at dev.twitter.com
 * On the app details page (https://dev.twitter.com/apps/yourappid/show), click the "Create my access token" button
-* Copy the Consumer key, Consumer secret, Access token, Access Token secret and put them in the config/app.yml.example
-* Rename config/app.yml.example to config/app.yml
 
 ## Usage
 
