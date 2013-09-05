@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name = 'twexport'
   s.version = '0.0.1'
-  s.date = '2013-08-14'
+  s.date = '2013-09-04'
   s.summary = 'Bulk export Twitter profile information to CSV'
   s.description = 'Twexport enables quick access to bulk Twitter profile information to be used for your analysis needs.  
     Given a list of twitter usernames, a twitter list, or a web page with one or many links to twitter profiles, 

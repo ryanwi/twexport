@@ -1,7 +1,0 @@
-# Register an application with Twitter to get a consumer key and an access token, 
-# then remove .example from filename
-# https://dev.twitter.com
-consumer_key: ''
-consumer_secret: ''
-oauth_token: ''
-oauth_token_secret: ''
