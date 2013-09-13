@@ -9,7 +9,7 @@ module Twexport
       @list_id = options[:list_id]
       @screen_name = options[:screen_name]
       @list_slug = options[:list_slug]
-      super()
+      super(options)
     end
 
     # Execute the Twitter List API call and save the result

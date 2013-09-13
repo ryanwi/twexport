@@ -7,13 +7,13 @@ module Twexport
     attr_accessor :client
     attr_accessor :users
 
-    def initialize(config = {})
+    def initialize(options = {})
       # configure twitter client
       @client = Twitter::Client.new(
-        :consumer_key => config[:consumer_key],
-        :consumer_secret => config[:consumer_secret],
-        :oauth_token => config[:oauth_token],
-        :oauth_token_secret => config[:oauth_token_secret]
+        :consumer_key => options[:consumer_key],
+        :consumer_secret => options[:consumer_secret],
+        :oauth_token => options[:access_token],
+        :oauth_token_secret => options[:access_token_secret]
       )
     end
 

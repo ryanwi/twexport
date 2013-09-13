@@ -1,28 +1,22 @@
 require_relative '../spec_helper'
 
 describe Twexport::Exporter do 
-  it "initializes with config" do
-    twexport = Twexport::Exporter.new(:consumer_key => '', 
-      :consumer_secret => '', 
-      :oauth_token => '', 
-      :oauth_token_secret => '')
+  before :each do
+    @twexport = Twexport::Exporter.new(
+      :consumer_key => CONSUMER_KEY, 
+      :consumer_secret => CONSUMER_SECRET, 
+      :access_token => ACCESS_TOKEN, 
+      :access_token_secret => ACCESS_TOKEN_SECRET)
+  end
+
+  it "initializes with twitter keys" do
   end
 
   it "looks up single user in Twitter API" do
-    twexport = Twexport::Exporter.new(:consumer_key => '', 
-      :consumer_secret => '', 
-      :oauth_token => '', 
-      :oauth_token_secret => '')
-    users = twexport.lookup_users ['ryanwi']
-    # puts users.inspect
+    users = @twexport.lookup_users ['ryanwi']
   end
 
-  it "looks up users in Twitter API" do
-    twexport = Twexport::Exporter.new(:consumer_key => '', 
-      :consumer_secret => '', 
-      :oauth_token => '', 
-      :oauth_token_secret => '')
-    users = twexport.lookup_users ['corybooker','lolojones','xeni']
-    # puts users.inspect
+  it "looks up multiple users in Twitter API" do
+    users = @twexport.lookup_users ['corybooker','lolojones','xeni']
   end
 end

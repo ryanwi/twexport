@@ -6,9 +6,9 @@ module Twexport
   # Exporter that scrapes a web page for Twitter usernames to lookup on Twitter
   class WebPage < Exporter
 
-    def initialize(url)
-      @url = url
-      super()
+    def initialize(options = {})
+      @url = options[:url]
+      super(options)
     end
 
     # Execute the export and save the result
