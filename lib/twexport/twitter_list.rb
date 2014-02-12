@@ -22,17 +22,8 @@ module Twexport
     private
 
     def get_members 
-      cursor = -1
-      members = []
       list_args = @list_id.nil? ? [@screen_name, @list_slug] : @list_id
-
-      while cursor != 0 do
-        sleep rand(5) if cursor > 0
-        members_page = @client.list_members *list_args, {:cursor=>cursor}
-        cursor = members_page.next_cursor
-        members << members_page.users
-      end
-
+      members = (@client.list_members *list_args).to_a
       members.flatten
     end
   end

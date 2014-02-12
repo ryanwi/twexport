@@ -1,6 +1,6 @@
 source "http://rubygems.org"
 
-gem 'twitter'
+gem "twitter", "~> 5.7.1"
 gem 'nokogiri'
 
 group :test, :development do

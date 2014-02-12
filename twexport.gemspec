@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name = 'twexport'
-  s.version = '0.0.1'
-  s.date = '2013-09-12'
+  s.version = '0.0.2'
+  s.date = '2014-02-12'
   s.summary = 'Export Twitter profile information to CSV'
   s.description = 'Twexport enables quick access to bulk Twitter profile information to be used for your analysis needs.  
     Given a list of twitter usernames, a twitter list, or a web page with one or many links to twitter profiles, 
@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
     "lib/twexport/twitter_list.rb", "lib/twexport/web_page.rb"]
   s.require_paths = ["lib"]
   s.license = 'MIT'
-  s.add_dependency('twitter')
+  s.add_dependency('twitter', '~> 5.7.1')
   s.add_dependency('nokogiri')
   s.add_development_dependency('rspec')
   s.requirements << 'Twitter API keys'

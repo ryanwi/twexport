@@ -1,3 +1,4 @@
+require 'twitter'
 require 'yaml'
 require 'csv'
 
@@ -9,12 +10,12 @@ module Twexport
 
     def initialize(options = {})
       # configure twitter client
-      @client = Twitter::Client.new(
-        :consumer_key => options[:consumer_key],
-        :consumer_secret => options[:consumer_secret],
-        :oauth_token => options[:access_token],
-        :oauth_token_secret => options[:access_token_secret]
-      )
+      @client = Twitter::REST::Client.new do |config|
+        config.consumer_key        = options[:consumer_key]
+        config.consumer_secret     = options[:consumer_secret]
+        config.access_token        = options[:access_token]
+        config.access_token_secret = options[:access_token_secret]
+      end
     end
 
     def save(path)
