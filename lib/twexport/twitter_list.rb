@@ -18,14 +18,12 @@ module Twexport
       super
     end
 
-
     private
 
-    def get_members 
+    def get_members
       list_args = @list_id.nil? ? [@screen_name, @list_slug] : @list_id
       members = (@client.list_members *list_args).to_a
       members.flatten
     end
   end
-
 end
